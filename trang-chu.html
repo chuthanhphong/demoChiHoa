@@ -117,6 +117,38 @@
           to {transform: scale(1)}
       }
 
+      .topnav .search-container button {
+          float: right;
+          padding: 6px 10px;
+          margin-top: 8px;
+          margin-right: 16px;
+          background: #ddd;
+          font-size: 17px;
+          border: none;
+          cursor: pointer;
+      }
+
+      .topnav .search-container button:hover {
+          background: #ccc;
+      }
+
+      @media screen and (max-width: 600px) {
+          .topnav .search-container {
+              float: none;
+          }
+          .topnav a, .topnav input[type=text], .topnav .search-container button {
+              float: none;
+              display: block;
+              text-align: left;
+              width: 100%;
+              margin: 0;
+              padding: 14px;
+          }
+          .topnav input[type=text] {
+              border: 1px solid #ccc;
+          }
+      }
+
       /* Change styles for span and cancel button on extra small screens */
       @media screen and (max-width: 300px) {
           span.psw {
@@ -168,17 +200,18 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <form class="d-flex" style="margin-left: 200px; width: 300px;">
-                <input style="border-radius: 20px" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Tìm Kiếm</button>
+            <li class="topnav" style="margin-left: 200px">
+              <form action="/action_page.php">
+                <input type="text" placeholder="Tìm Kiếm" name="search">
+                <button type="submit"><i class="fa fa-search">Tìm Kiếm</i></button>
               </form>
             </li>
 
             <li>
               <div style="margin-left: 400px">
-                <a onclick="document.getElementById('id01').style.display='block'" style="width:auto; cursor: pointer; color: #04AA6D">Đăng Nhập</a>
-              <a  style="width:auto; cursor: pointer; color: #04AA6D"href="/dang-ky.html">Đăng Ký</a>
+                <a onclick="document.getElementById('id01').style.display='block'" style="width:auto; cursor: pointer; color: #04AA6D">Đăng Nhập </a>
+                <p></p>
+              <a style="width:auto; cursor: pointer; color: #04AA6D ; text-decoration: none"href="/dang-ky.html">Đăng Ký </a>
               </div>
             </li>
           </ul>

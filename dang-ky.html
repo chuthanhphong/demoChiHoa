@@ -20,7 +20,7 @@
       }
 
       select {
-             width: 50%;
+             width: 100%;
           padding: 15px;
           margin: 5px 0 22px 0;
           display: inline-block;
@@ -120,8 +120,8 @@
       <option value="vw">Không xác định</option>
     </select>
 
-    <label for="email"><b>Ngày sinh</b></label>
-    <input type="text" placeholder="Ngày Sinh" name="fullname" required>
+    <label for="date"><b>Ngày sinh</b></label>
+    <input type="text" placeholder="Ngày Sinh" name="date" required>
 
     <label for="email"><b>Số điện thoại</b></label>
     <input type="number" placeholder="Số điẹn thoại" name="fullname" required>
@@ -132,7 +132,8 @@
     <label for="email"><b>Tải CV</b></label>
     <input type="file" name="fullname" required>
     <div class="clearfix">
-      <button type="submit" class="signupbtn" onclick="success()">Đăng Ký tài khoản</button>
+      <button type="success" class="btn btn-success" onclick="success()">Đăng Ký tài khoản</button>
+      <button href="/trang-chu.html" type="warning" class="btn btn-danger">Huỷ</button>
     </div>
   </div>
 </form>
