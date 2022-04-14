@@ -92,6 +92,7 @@
   </style>
 </head>
 <body>
+<div class="container">
 <form action="/action_page.php" style="border:1px solid #ccc">
   <div class="container">
     <h1>Đăng Ký</h1>
@@ -131,11 +132,11 @@
     <label for="email"><b>Tải CV</b></label>
     <input type="file" name="fullname" required>
     <div class="clearfix">
-      <button type="submit" class="signupbtn">Đăng Ký tài khoản</button>
+      <button type="submit" class="signupbtn" onclick="success()">Đăng Ký tài khoản</button>
     </div>
   </div>
 </form>
-
+</div>
 <script>
   $(function () {
     $("#datepicker").datepicker({
@@ -143,6 +144,10 @@
       todayHighlight: true
     }).datepicker('update', new Date());
   });
+
+  function success(){
+    alert('Đăng Ký thành công')
+  }
 
 </script>
 </body>
