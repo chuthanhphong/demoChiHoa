@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* Full-width input fields */
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        /* Set a style for all buttons */
+        button {
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        /* Extra styles for the cancel button */
+        .cancelbtn {
+            width: auto;
+            padding: 10px 18px;
+            background-color: #f44336;
+        }
+
+        /* Center the image and position the close button */
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+            position: relative;
+        }
+
+        img.avatar {
+            width: 40%;
+            border-radius: 50%;
+        }
+
+        .container {
+            padding: 16px;
+        }
+
+        span.psw {
+            float: right;
+            padding-top: 16px;
+        }
+
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0); /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+            padding-top: 60px;
+        }
+
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto 5% auto; /* 5% from the top, 15% from the bottom and centered */
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+        }
+
+        .close {
+            position: absolute;
+            right: 25px;
+            top: 0;
+            color: #000;
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: red;
+            cursor: pointer;
+        }
+
+        /* Add Zoom Animation */
+        .animate {
+            -webkit-animation: animatezoom 0.6s;
+            animation: animatezoom 0.6s
+        }
+
+        @-webkit-keyframes animatezoom {
+            from {
+                -webkit-transform: scale(0)
+            }
+            to {
+                -webkit-transform: scale(1)
+            }
+        }
+
+        @keyframes animatezoom {
+            from {
+                transform: scale(0)
+            }
+            to {
+                transform: scale(1)
+            }
+        }
+
+        .topnav .search-container button {
+            float: right;
+            padding: 6px 10px;
+            margin-top: 8px;
+            margin-right: 16px;
+            background: #ddd;
+            font-size: 17px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .topnav .search-container button:hover {
+            background: #ccc;
+        }
+
+        @media screen and (max-width: 600px) {
+            .topnav .search-container {
+                float: none;
+            }
+
+            .topnav a, .topnav input[type=text], .topnav .search-container button {
+                float: none;
+                display: block;
+                text-align: left;
+                width: 100%;
+                margin: 0;
+                padding: 14px;
+            }
+
+            .topnav input[type=text] {
+                border: 1px solid #ccc;
+            }
+        }
+
+        /* Change styles for span and cancel button on extra small screens */
+        @media screen and (max-width: 300px) {
+            span.psw {
+                display: block;
+                float: none;
+            }
+
+            .cancelbtn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div>
+            <div class="container" style="display: flex">
+                <input type="text" placeholder="Tên công việc vị trí bạn muốn ứng tuyển" name="uname">
+                <span style="margin-right: 10px"></span>
+                <select id="cars" style="width: 300px; height: 40px; margin-top: 10px">
+                    <option value="volvo">Tất cả nghề nghiệp</option>
+                    <option value="saab">IT</option>
+                    <option value="vw">Tester</option>
+                </select>
+                <span style="margin-right: 10px"></span>
+                <select style="width: 300px; height: 40px; margin-top: 10px">
+                    <option value="volvo">Tất cả các lĩnh vực của công ty</option>
+                    <option value="saab">IT</option>
+                    <option value="vw">Tester</option>
+                </select>
+                <span style="margin-right: 10px"></span>
+                <select style="width: 300px; height: 40px; margin-top: 10px">
+                    <option value="volvo">Hà nội</option>
+                    <option value="saab">IT</option>
+                    <option value="vw">Tester</option>
+                </select>
+                <span style="margin-right: 10px"></span>
+                <button id="btn1" type="submit">Tìm kiếm</button>
+            </div>
+        </div>
+        <div id="content">
+            <div style="margin-top: 50px ; margin-bottom: 40px" class="col-12">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star"
+                     viewBox="0 0 16 16">
+                    <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                </svg>
+                <span style="margin-left: 30px">TIN TUYỂN DỤNG VIỆC LÀM TỐT NHẤT   </span>
+                <a style="margin-left: 800px; cursor: pointer">Xem tất cả</a>
+            </div>
+            <div class="col-24" style="display:  flex; margin-bottom: 40px; justify-content: center;">
+                <div style="margin-left: 15px" class="col-4">
+                    <div class="card">
+                        <div class="card-header">
+                            Nhân viên kiểm thử tester
+                        </div>
+                        <div class="card-body">
+                            <img style="height: 70px" width="100px"
+                                 src="https://www.testcenter.vn/blog/wp-content/uploads/2021/01/ung-vien-tai-nang.jpg"
+                                 alt="">
+                            <p class="card-text">Công Ty cổ phần công nghệ ETC Việt Nam</p>
+                            <a href="#" class="btn btn-primary" STYLE="cursor: pointer">Nộp Cv</a>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-left: 15px" class="col-4">
+                    <div class="card">
+                        <div class="card-header">
+                            Nhân viên kiểm thử tester
+                        </div>
+                        <div class="card-body">
+                            <img style="height: 70px" width="100px"
+                                 src="https://www.testcenter.vn/blog/wp-content/uploads/2021/01/ung-vien-tai-nang.jpg"
+                                 alt="">
+                            <p class="card-text">Công Ty cổ phần công nghệ ETC Việt Nam</p>
+                            <a href="#" class="btn btn-primary" STYLE="cursor: pointer">Nộp Cv</a>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-left: 15px" class="col-4">
+                    <div class="card">
+                        <div class="card-header">
+                            Nhân viên kiểm thử tester
+                        </div>
+                        <div class="card-body">
+                            <img style="height: 70px" width="100px"
+                                 src="https://www.testcenter.vn/blog/wp-content/uploads/2021/01/ung-vien-tai-nang.jpg"
+                                 alt="">
+                            <p class="card-text">Công Ty cổ phần công nghệ ETC Việt Nam</p>
+                            <a href="#" class="btn btn-primary" STYLE="cursor: pointer">Nộp Cv</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-mt-12" style="display:  flex; justify-content: center;">
+                <div style="margin-left: 15px" class="col-4">
+                    <div class="card">
+                        <div class="card-header">
+                            Nhân viên kiểm thử tester
+                        </div>
+                        <div class="card-body">
+                            <img style="height: 70px" width="100px"
+                                 src="https://www.testcenter.vn/blog/wp-content/uploads/2021/01/ung-vien-tai-nang.jpg"
+                                 alt="">
+                            <p class="card-text">Công Ty cổ phần công nghệ ETC Việt Nam</p>
+                            <a href="#" class="btn btn-primary" STYLE="cursor: pointer">Nộp Cv</a>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-left: 15px" class="col-4">
+                    <div class="card">
+                        <div class="card-header">
+                            Nhân viên kiểm thử tester
+                        </div>
+                        <div class="card-body">
+                            <img style="height: 70px" width="100px"
+                                 src="https://www.testcenter.vn/blog/wp-content/uploads/2021/01/ung-vien-tai-nang.jpg"
+                                 alt="">
+                            <p class="card-text">Công Ty cổ phần công nghệ ETC Việt Nam</p>
+                            <a href="#" class="btn btn-primary" STYLE="cursor: pointer">Nộp Cv</a>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-left: 15px" class="col-4">
+                    <div class="card">
+                        <div class="card-header">
+                            Nhân viên kiểm thử tester
+                        </div>
+                        <div class="card-body">
+                            <img style="height: 70px" width="100px"
+                                 src="https://www.testcenter.vn/blog/wp-content/uploads/2021/01/ung-vien-tai-nang.jpg"
+                                 alt="">
+                            <p class="card-text">Công Ty cổ phần công nghệ ETC Việt Nam</p>
+                            <a href="#" class="btn btn-primary" STYLE="cursor: pointer">Nộp Cv</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="content2" style="display: none; margin-bottom: 50px">
+            <div class="modal-content animate" action="/trang-chu.html" method="post">
+<!--                <div class="imgcontainer">-->
+<!--                    <span onclick="document.getElementById('id01').style.display='none'" class="close"-->
+<!--                          title="Close Modal">&times;</span>-->
+<!--                </div>-->
+
+                <div class="container" style="display: flex; justify-content: center">
+                    <img style="width: 80px;height: 80px"
+                         src="https://upload.wikimedia.org/wikipedia/commons/f/f4/User_Avatar_2.png" alt="Avatar"
+                         class="avatar">
+                    <div style="width: 400px;text-align: center; justify-content: center; padding-bottom: 20px; margin-left: 50px">
+                        <b style="color: blue">Nhân viên kiểm soát chất lượng dự án CNTT</b></br>
+                        <b>Công ty cổ phần hệ thống thông tin FPT</b>
+                        <b>hạn nộp hồ sơ 20/12/2022</b>
+                    </div>
+                    <button onclick="document.getElementById('id01').style.display='block'" style="width: 20%" type="submit">Ứng tuyển vào công việc</button>
+                </div>
+            </div>
+            <div class="modal-content animate" method="post">
+                <div class="container" style="display: flex; justify-content: center">
+                    <div style="width: 400px;text-align: center; justify-content: center; padding-bottom: 20px; margin-left: 50px; margin-right: 50px">
+                        <b style="color: blue">Mô tả công việc</b></br>
+                        <b>Công ty cổ phần hệ thống thông tin FPT</b>
+                        <b>hạn nộp hồ sơ 20/12/2022</b>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="id01" class="modal">
+
+            <form class="modal-content animate" action="/trang-chu.html" method="post">
+                <div class="imgcontainer">
+                    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                    <img style="width: 80px;height: 80px" src="https://upload.wikimedia.org/wikipedia/commons/f/f4/User_Avatar_2.png" alt="Avatar" class="avatar">
+                </div>
+
+                <div class="container" style="justify-content: center; text-align: center;">
+                    <label>Sử dụng CV đã nộp</label>
+                    <button style="width: 10%" type="submit">DÙng CV đã nộp</button><br/>
+                    <label for="email"><b>Tải CV</b></label>
+                    <input type="file" name="fullname"><br/>
+                    <div style="display: flex">
+                    <button style="width: 50%; padding-left: 100px" type="submit">Nộp đơn</button>
+                        <span style="margin-right: 20px"></span>
+                    <button style="width: 50%"  type="submit">Đóng</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+
+    document.getElementById("btn1").onclick = function () {
+        document.getElementById("content").style.display = 'none';
+        document.getElementById("content2").style.display = 'block';
+    };
+
+
+
+</script>
+</body>
+</html>

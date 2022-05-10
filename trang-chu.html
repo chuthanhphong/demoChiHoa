@@ -186,7 +186,7 @@
 
       <div class="container" style="background-color:#f1f1f1">
         <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Thoát</button>
-        <span class="psw"><a href="#">Quên mật khẩu</a></span>
+        <span class="psw"><a href="/quen-mat-khau.html">Quên mật khẩu</a></span>
       </div>
     </form>
   </div>
@@ -199,19 +199,25 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="topnav" style="margin-left: 200px">
-              <form action="/action_page.php">
-                <input type="text" placeholder="Tìm Kiếm" name="search">
-                <button type="submit"><i class="fa fa-search">Tìm Kiếm</i></button>
+          <ul class="navbar-nav me-auto mb-1 mb-lg-0" style="flex-direction: column; margin-right: 0">
+            <li class="topnav" style="margin-left: 150px">
+              <form action="/action_page.php" style="display: flex">
+                <input style="width: 300px" type="text" placeholder="Tìm Kiếm" name="search">
+                <span style="margin-right: 50px"></span>
+                <button style="width: 200px; margin-right: 250px" type="submit"><i class="fa fa-search">Tìm Kiếm</i></button>
               </form>
             </li>
 
-            <li>
-              <div style="margin-left: 400px">
-                <a onclick="document.getElementById('id01').style.display='block'" style="width:auto; cursor: pointer; color: #04AA6D">Đăng Nhập </a>
+            <li style="justify-content: center; text-align: center">
+              <div style="display: flex; margin-bottom: 50px">
+                <button style="border-right: 1px solid #dddddd; " type="submit"><i class="fa fa-search" onclick="window.location.href='/viec-lam.html'">Việc làm</i></button>
+                <button style="border-right: 1px solid #dddddd; " type="submit"><i class="fa fa-search">Hồ sơ & CV</i></button>
+                <button style="padding-right: 50px" type="submit"><i class="fa fa-search">Công ty</i></button>
+                <div style="margin-left: 50px">
+                <a onclick="document.getElementById('id01').style.display='block'" style="width:200px; cursor: pointer; color: #04AA6D">Đăng Nhập </a>
                 <p></p>
-              <a style="width:auto; cursor: pointer; color: #04AA6D ; text-decoration: none"href="/dang-ky.html">Đăng Ký </a>
+              <a style="width:auto; cursor: pointer; color: #04AA6D ; text-decoration: none" href="/dang-ky.html">Đăng Ký </a>
+                </div>
               </div>
             </li>
           </ul>
@@ -233,11 +239,11 @@
           <img src="https://cddltm.edu.vn/wp-content/uploads/2017/03/1.tvvl124.jpg" class="d-block w-100" alt="...">
         </div>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <button class="carousel-control-prev" style="z-index: 0" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
       </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <button class="carousel-control-next" style="z-index: 0" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
       </button>

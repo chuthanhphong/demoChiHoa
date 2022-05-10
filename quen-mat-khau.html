@@ -1,10 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>$Title$</title>
+    <style>
+      body {font-family: Arial, Helvetica, sans-serif;}
+
+      /* Full-width input fields */
+      input[type=text], input[type=password] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+      }
+
+      /* Set a style for all buttons */
+      button {
+        background-color: #04AA6D;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+      }
+
+      button:hover {
+        opacity: 0.8;
+      }
+
+      /* Extra styles for the cancel button */
+      .cancelbtn {
+        width: auto;
+        padding: 10px 18px;
+        background-color: #f44336;
+      }
+
+      /* Center the image and position the close button */
+      .imgcontainer {
+        text-align: center;
+        margin: 24px 0 12px 0;
+        position: relative;
+      }
+
+      img.avatar {
+        width: 40%;
+        border-radius: 50%;
+      }
+
+      .container {
+        padding: 16px;
+      }
+
+      span.psw {
+        float: right;
+        padding-top: 16px;
+      }
+
+      /* The Modal (background) */
+      /*.modal {*/
+      /*  display: none; !* Hidden by default *!*/
+      /*  position: fixed; !* Stay in place *!*/
+      /*  z-index: 1; !* Sit on top *!*/
+      /*  left: 0;*/
+      /*  top: 0;*/
+      /*  width: 100%; !* Full width *!*/
+      /*  height: 100%; !* Full height *!*/
+      /*  overflow: auto; !* Enable scroll if needed *!*/
+      /*  background-color: rgb(0,0,0); !* Fallback color *!*/
+      /*  background-color: rgba(0,0,0,0.4); !* Black w/ opacity *!*/
+      /*  padding-top: 60px;*/
+      /*}*/
+
+      /* Modal Content/Box */
+      .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+        border: 1px solid #888;
+        width: 80%; /* Could be more or less, depending on screen size */
+      }
+
+    </style>
 </head>
 <body>
-$END$
+<div class="container modal">
+  <div id="id01" class="modal">
+    <form class="modal-content animate" action="/trang-chu.html" method="post">
+      <div class="imgcontainer">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <img style="width: 80px;height: 80px" src="https://upload.wikimedia.org/wikipedia/commons/f/f4/User_Avatar_2.png" alt="Avatar" class="avatar">
+      </div>
+
+      <div class="container">
+        <div style="text-align: center; justify-content: center; padding-bottom: 20px">
+        <span>Để khởi tạo lại mật khẩu cho tài khoản. Bạn vui lòng nhập E-mail đã đăng ký, chúng tôi sẽ gửi cho bạn E-mail chứ đường dẫn cho phép bạn đặt lại mật khẩu</span>
+        </div>
+        <label for="uname"><b>Nhập email để nhận mật khẩu mới</b></label>
+        <input type="text" placeholder="Nhập email để nhận mật khẩu mới" name="uname" required>
+
+        <button type="submit">Lấy lại mật khẩu</button>
+      </div>
+
+<!--      <div class="container" style="background-color:#f1f1f1">-->
+<!--        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Thoát</button>-->
+<!--        <span class="psw"><a href="/quen-mat-khau.html">Quên mật khẩu</a></span>-->
+<!--      </div>-->
+    </form>
+  </div>
+</div>
 </body>
 </html>
